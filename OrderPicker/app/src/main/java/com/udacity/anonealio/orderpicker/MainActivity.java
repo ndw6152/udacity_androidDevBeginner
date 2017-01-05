@@ -54,7 +54,15 @@ public class MainActivity extends AppCompatActivity {
      * This method displays the given price value for the quantity of order on the screen.
      */
     private void displayPrice(int number) {
-        TextView quantityTextView = (TextView) findViewById(R.id.value_text_view);
-        quantityTextView.setText("$" + number * CONST_PRICE);
+        TextView quantityTextView = (TextView) findViewById(R.id.price_text_view);
+        quantityTextView.setText("Total = $" + number * CONST_PRICE);
+    }
+
+    /**
+     * This method displays the given price value for the quantity of order on the screen.
+     */
+    private void displayMessage(String message) {
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(message);
     }
 }
