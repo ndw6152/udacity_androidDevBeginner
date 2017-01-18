@@ -49,11 +49,6 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamA(scoreA);
     }
 
-    public void resetOnClick(View view) {
-        scoreA = 0;
-        displayForTeamA(scoreA);
-    }
-
     public void threePoint_b_ButtonClick(View view) {
         scoreB += 3;
         displayForTeamB(scoreB);
@@ -69,8 +64,10 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamB(scoreB);
     }
 
-    public void reset_b_OnClick(View view) {
+    public void resetButtonClick(View view) {
         scoreB = 0;
+        scoreA = 0;
+        displayForTeamA(scoreA);
         displayForTeamB(scoreB);
     }
 
