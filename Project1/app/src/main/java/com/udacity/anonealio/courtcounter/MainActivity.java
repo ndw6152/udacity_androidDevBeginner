@@ -8,7 +8,8 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int score = 0;
+    private int scoreA = 0;
+    private int scoreB = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,25 +25,53 @@ public class MainActivity extends AppCompatActivity {
         scoreView.setText(String.valueOf(score));
     }
 
+    /**
+     * Displays the given score for Team A.
+     */
+    public void displayForTeamB(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.teamB_score_text_view);
+        scoreView.setText(String.valueOf(score));
+    }
+
     /// Code for buttons
     public void threePointButtonClick(View view) {
-        score += 3;
-        displayForTeamA(score);
+        scoreA += 3;
+        displayForTeamA(scoreA);
     }
 
     public void twoPointButtonClick(View view) {
-        score += 2;
-        displayForTeamA(score);
+        scoreA += 2;
+        displayForTeamA(scoreA);
     }
 
     public void freeThrowButtonClick(View view) {
-        score += 1;
-        displayForTeamA(score);
+        scoreA += 1;
+        displayForTeamA(scoreA);
     }
 
     public void resetOnClick(View view) {
-        score = 0;
-        displayForTeamA(score);
+        scoreA = 0;
+        displayForTeamA(scoreA);
+    }
+
+    public void threePoint_b_ButtonClick(View view) {
+        scoreB += 3;
+        displayForTeamB(scoreB);
+    }
+
+    public void twoPoint_b_ButtonClick(View view) {
+        scoreB += 2;
+        displayForTeamB(scoreB);
+    }
+
+    public void freeThrow_b_ButtonClick(View view) {
+        scoreB += 1;
+        displayForTeamB(scoreB);
+    }
+
+    public void reset_b_OnClick(View view) {
+        scoreB = 0;
+        displayForTeamB(scoreB);
     }
 
 
