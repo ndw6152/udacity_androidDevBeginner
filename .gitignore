@@ -34,3 +34,7 @@ build/
 
 #NDK
 obj/
+Project1/gradle/wrapper/gradle-wrapper.jar
+Project1/gradle/wrapper/gradle-wrapper.properties
+Project1/gradlew
+Project1/gradlew.bat
