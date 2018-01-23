@@ -19,18 +19,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    ///// button functions
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        displayPrice(quantity);
+
+        int price = calculatePrice(quantity);
+        displaySummary(quantity, price);
     }
 
     /**
      * This method is called when the + button is clicked.
      */
     public void increment(View view) {
-        display(++quantity);
+        displayQuantity(++quantity);
     }
 
     /**
@@ -38,31 +41,40 @@ public class MainActivity extends AppCompatActivity {
      */
     public void decrement(View view) {
         if(--quantity < 0)
-            quantity=0;
-        display(quantity);
+            quantity = 0;
+        displayQuantity(quantity);
     }
 
+    ///// /button functions
+
+    /**
+     * This method displays the summary of the order with the quantity and total price
+     */
+    private void displaySummary(int quantity, int price) {
+        TextView quantityTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        quantityTextView.setText("Quantity = " + quantity + "\nTotal = $" + price);
+    }
     /**
      * This method displays the given quantity value on the screen.
      */
-    private void display(int number) {
+    private void displayQuantity(int numberOfCoffee) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText("" + numberOfCoffee);
     }
 
     /**
      * This method displays the given price value for the quantity of order on the screen.
      */
-    private void displayPrice(int number) {
-        TextView quantityTextView = (TextView) findViewById(R.id.price_text_view);
-        quantityTextView.setText("Total = $" + number * CONST_PRICE);
+    private void displayPrice(int price) {
+        TextView quantityTextView = (TextView) findViewById(R.id.order_summary_text_view);
+        quantityTextView.setText("Total = $" + price);
     }
 
     /**
-     * This method displays the given price value for the quantity of order on the screen.
+     * Calculates the price of the order based on the current quantity.
+     * @return the price
      */
-    private void displayMessage(String message) {
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        priceTextView.setText(message);
+    private int calculatePrice(int quantity) {
+        return quantity * CONST_PRICE;
     }
 }
